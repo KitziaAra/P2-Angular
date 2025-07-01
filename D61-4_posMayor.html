@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            
+            function posMayor(){
+                const arreglo = document.getElementById('nums').value;
+                let arr = arreglo.split(".");
+                let n = arr.length;
+                let max = -Infinity;
+                let pos = -1;
+
+                for(i = 0, j = 1; i < n; i++, j++) {
+
+                    if(arr[i] > max) {
+                        max = arr[i];
+                        pos = i;
+                    }
+                }
+                return alert("El valor máximo es " + max + ", en la posicion" + pos);
+
+            }
+        </script>
+        <title>Posicion mayor de un arreglo | Kitzia 4BM2</title>
+    </head>
+    <body>
+        <header>
+            <h1>Obtenga el valor mayor de un arreglo</h1>
+        </header>
+        <div  style="text-align: justify;">
+            <form name="posMayorForm"  method="post" >
+                <legend>Ingrese un conjunto de numeros separados por puntos</legend>
+                <p>
+                    
+                    <input id="nums" name="txtNums"/>
+                </p>
+                <br>
+                <button type="button" onclick="posMayor()">Calcular</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function tablaMulti(){
+                let a = document.getElementById("numero").value;
+                let i =1;
+
+                document.write('<br><br><br><table align="center" border="1" width="100px"><tr><td colspan="2">'+ "Tabla del "+a+'</td></tr>');
+
+                for(i; i<=10; i++){
+                    document.write('<tr><td>'+ i +'</td><td>'+ i*a+'</td></tr>');
+                }
+
+                document.write("</table>");
+            }
+
+        </script>
+        <title>Tabla de multiplicar individual | Kitzia 4BM2</title>
+    </head>
+    <body>
+        <h1>Calcula la tabla de multiplicar de un número</h1>
+        <div style="margin: 0 auto; display: block; align-content: center; text-align: justify;">
+            <form >
+                <legend>Ingresa un numero</legend>
+
+                <label></label>
+                <input type="number"  id="numero" name="numeroTxt"/>
+                <br><br>
+                <button type="button" onclick="tablaMulti()">Calcular</button>
+            </form>
+        </div>
+    </body>
+</html>

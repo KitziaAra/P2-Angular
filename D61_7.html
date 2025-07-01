@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            
+            function ordenar(){
+                const arreglo = document.getElementById('nums').value;
+                let arr = arreglo.split(".");
+                let n = arr.length;
+                let max = -Infinity;
+                let pos = -1;
+                let cadena ="[";
+
+                for(i = 0; i < n; i++) {
+                    arr[i] = parseInt(arr[i]);
+
+                }
+
+                arr.sort((arr, b) => arr - b);
+                for(i = 0; i < n; i++) {                    
+                    cadena += arr[i];
+                    cadena += ",";
+
+                }
+                cadena+="]";
+                return alert("El arreglo ordenado es " + cadena);
+
+            }
+        </script>
+        <title>Ordenar un arreglo | Kitzia 4BM2</title>
+    </head>
+    <body>
+        <header>
+            <h1>Obtenga un arreglo ordenado</h1>
+        </header>
+        <div  style="text-align: justify;">
+            <form name="posMayorForm"  method="post" >
+                <legend>Ingrese un conjunto de numeros separados por puntos</legend>
+                <p>
+                    
+                    <input id="nums" name="txtNums"/>
+                </p>
+                <br>
+                <button type="button" onclick="ordenar()">Calcular</button>
+            </form>
+        </div>
+    </body>
+</html>

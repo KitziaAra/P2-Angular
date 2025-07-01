@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function getCurp(){
+                const nombreCompleto = document.getElementById("nombre").value.trim().toUpperCase();
+                const apellido1 = document.getElementById("apellido1").value.trim().toUpperCase();
+                const apellido2 = document.getElementById("apellido2").value.trim().toUpperCase() || "X";
+                const dia = document.getElementById("txtDia").value.padStart(2, "0");
+                const mes = document.getElementById("txtMes").value.padStart(2, "0");
+                const año = document.getElementById("txtAnio").value.slice(-2);
+                const sexo = document.getElementById("sexo").value.trim().toUpperCase();
+                let estado = document.getElementById("estado").value.trim().toUpperCase();
+
+                if(estado === "DF" && document.getElementById("txtAnio").value >= 2016) {
+                    estado = "CM";
+                }
+
+                if(document.getElementById("txtDia").value<=0 || document.getElementById("txtDia").value>31){
+                    return alert("Ingrese un día valido")
+                }
+
+                if (!nombreCompleto || !apellido1 || !dia || !mes || !año || !sexo || !estado) {
+                    
+                    return alert("Complete todos los campos ");
+                }
+
+                
+
+                let nombres = nombreCompleto.split(" ");
+                let nombre = nombres[0];
+
+                let curp = apellido1.charAt(0);
+                curp += apellido1.slice(1).match(/[AEIOU]/i)?.[0] || "";
+                curp += apellido2.charAt(0);
+                curp += nombre.charAt(0);
+                curp += año + mes + dia;
+                curp += sexo;
+                curp += estado;
+                curp += apellido1.slice(1).match(/[^AEIOUaeiou\s]/)?.[0] || "";
+                curp += apellido2.slice(1).match(/[^AEIOUaeiou\s]/)?.[0] || "";
+                curp += nombre.slice(1).match(/[^AEIOUaeiou\s]/)?.[0] || "";
+                curp += "??";
+                
+                
+                return alert("Su curp es: "+curp);
+            }
+        </script>
+        <title>Obtencion de CURP | Kitzia 4BM2</title>
+    </head>
+    <body>
+        <form name="formCURP" method="post">
+                    <label><h2>Obtener CURP</h2></label><br>
+        <div class="contenedor-flex">
+            
+                <label>Ingrese su nombre:</label>
+                <input id="nombre" type="text" placeholder="Nombre(s)"><br><br>
+                <label>Ingrese su primer apellido</label>
+                <input id="apellido1" type="text" placeholder="Primer Apellido"><br><br>
+                <label>Ingrese su segundo apellido</label>
+                <input id="apellido2" type="text" placeholder="Segundo Apellido"><br><br>
+
+                <select id="sexo">
+                    <option value="none">Seleccione su sexo</option>
+                    <option value="M">Mujer</option>
+                    <option value="H">Hombre</option>
+                    <option value="X">No binario</option>
+                </select>
+                <br><br>
+                <input id="txtDia" type="number" placeholder="Ingrese su día de nacimiento"><br><br>
+                <select id="txtMes">
+                    <option value="none">Seleccione un mes...</option>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select><br><br>
+                
+                <input id="txtAnio" type="number" placeholder="Ingrese su año de nacimiento"><br><br>
+                <select id="estado">
+                    <option value="none">Seleccione un estado...</option>
+                    <option value="AS">Aguascalientes</option>
+                    <option value="BC">Baja California</option>
+                    <option value="BS">Baja California Sur</option>
+                    <option value="CC">Campeche</option>
+                    <option value="CS">Chiapas</option>
+                    <option value="CH">Chihuahua</option>
+                    <option value="CL">Coahuila</option>
+                    <option value="CM">Colima</option>
+                    <option value="DF">Ciudad de México</option>
+                    <option value="DG">Durango</option>
+                    <option value="GT">Guanajuato</option>
+                    <option value="GR">Guerrero</option>
+                    <option value="HG">Hidalgo</option>
+                    <option value="JC">Jalisco</option>
+                    <option value="MC">México</option>
+                    <option value="MN">Michoacán</option>
+                    <option value="MS">Morelos</option>
+                    <option value="NT">Nayarit</option>
+                    <option value="NL">Nuevo León</option>
+                    <option value="OC">Oaxaca</option>
+                    <option value="PL">Puebla</option>
+                    <option value="QT">Querétaro</option>
+                    <option value="QR">Quintana Roo</option>
+                    <option value="SP">San Luis Potosí</option>
+                    <option value="SL">Sinaloa</option>
+                    <option value="SR">Sonora</option>
+                    <option value="TC">Tabasco</option>
+                    <option value="TS">Tamaulipas</option>
+                    <option value="TL">Tlaxcala</option>
+                    <option value="VZ">Veracruz</option>
+                    <option value="YN">Yucatán</option>
+                    <option value="ZS">Zacatecas</option>
+                </select><br><br>
+            </div>
+        <button id="curp" type="button" onclick="getCurp()">CURP</button>
+        
+        </form>
+    </body>
+</html>

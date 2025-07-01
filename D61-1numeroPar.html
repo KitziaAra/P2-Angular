@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function esPar(){
+                let a = document.getElementById("numero").value;
+
+                if(a%2==0){
+                    alert(a+ " es un numero par");
+                } else{
+                    alert(a+ " es un numero impar");
+                }
+            }
+
+        </script>
+        <title>Numeros par | Kitzia 4BM2</title>
+    </head>
+    <body>
+        <h1>Calcula si un numero es par</h1>
+        <div style="margin: 0 auto; display: block; align-content: center; text-align: justify;">
+            <form >
+                <legend>Ingresa un numero</legend>
+
+                <label></label>
+                <input type="number"  id="numero" name="numeroTxt"/>
+                <br><br>
+                <button type="reset" onclick="esPar()">Comprobar</button>
+            </form>
+        </div>
+    </body>
+</html>
