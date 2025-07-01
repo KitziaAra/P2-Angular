@@ -1,0 +1,32 @@
+<div class="mb-3"></div>
+<div class="container mb-3">
+  <form>
+    <div class="mb-3">
+      <label for="txtNombre" class="form-label">Nombre del Evento</label>
+      <input type="text" class="form-control text-center text-primary" id="txtNombre" name="txtNombre"
+      [(ngModel)]="evento.nombreEvento"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="txtDuracion" class="form-label">Duración del Evento</label>
+      <input type="number" class="form-control text-center text-primary" id="txtDuracion" name="txtDuracion"
+      [(ngModel)]="evento.duracionEvento"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="txtFecha" class="form-label">Fecha del Evento</label>
+      <input type="date" class="form-control text-center text-primary" id="txtFecha" name="txtFecha"
+      [(ngModel)]="evento.fechaEvento"
+      />
+    </div>
+    <div class="mb-3">
+      @if (evento.idEvento ) {
+        <button type="button" class="btn btn-outline-success form-control">Editar</button>
+      }@else {
+        <button type="button" class="btn btn-outline-primary form-control" (click)="create()">Guardar</button>
+      }
+
+
+    </div>
+  </form>
+</div>

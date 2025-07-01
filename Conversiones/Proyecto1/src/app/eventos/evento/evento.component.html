@@ -1,0 +1,44 @@
+<div class="mb-3"></div>
+<div class="container">
+  <div class="card border-success mb-3">
+    <div class="card-header text-primary">
+      <h1 class="text-center">
+        {{ titulo }}
+      </h1>
+    </div>
+    <div class="card-body text-primary">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Clave del Evento</th>
+            <th>Nombre del Evento</th>
+            <th>Duracion del Evento</th>
+            <th>Fecha del Evento</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of listaDeEventos">
+            <td>{{ e.idEvento}}</td>
+            <td>{{ e.nombreEvento}}</td>
+            <td>{{ e.duracionEvento}}</td>
+            <td>{{ e.fechaEvento}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-success btn-sm"
+                [routerLink]="['/eventosForm',e.idEvento]"
+              >
+                Actualizar
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(e)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
